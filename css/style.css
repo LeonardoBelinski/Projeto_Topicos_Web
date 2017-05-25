@@ -1,0 +1,107 @@
+body{
+    background-color:#C0C0C0;
+}
+
+.navbar{
+    background-color: white;
+    border-style: none;
+    border-bottom-style: solid; /*RETIRAR DEPOIS DE PRONTO*/
+    border-radius: 0px;
+    border-color: gold;
+    border-width: 3px;
+}
+
+.product{
+    background-color:transparent;
+}
+
+.img-200{
+    max-height: 200px;
+}
+
+h2{
+    color: black;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+h3{
+    text-align: center;
+    color: white;
+}
+
+#cordas{
+    padding-top: 20px;
+}
+
+header{
+    padding-bottom: 40px;
+}
+
+footer{
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+
+.header-box{
+    color:black;
+    font-weight: bold;
+}
+
+.footer{
+    color:black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-group{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+p{
+    color:black;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.contato-empresa{
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+.thumbnail{
+    border-width: 3px;
+    border-color: gold;
+    border-style: outset;
+    border-radius: 10px;
+}
+
+.title-row-before{
+    border-width: 3px;
+    border-color: red;
+}
+
+.title-row-after{
+    border-color: gold;
+}
+
+.header-box:hover{
+    color:red;
+}
+
+legend{
+    text-align: center;
+    color: black;
+}
+
+.hidden {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
