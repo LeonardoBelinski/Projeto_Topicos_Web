@@ -1,53 +1,471 @@
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="descrição" content="Venda de instrumentos músicais">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Instrumentos Musicais</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link type="text/css" href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header" id="navheader">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                       <li>
+                            <a onclick="scrollToElement('#myCarousel');">
+                                <div class="header-box">HOME</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="scrollToElement('#cordas');">
+                                <div class="header-box">CORDAS</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="scrollToElement('#percussao');">
+                                <div class="header-box">PERCUSSÃO</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="scrollToElement('#teclas');">
+                                <div class="header-box">TECLAS</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="scrollToElement('#sopro')";>
+                                <div class="header-box">SOPRO</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="scrollToElement('#acessorios');">
+                                <div class="header-box">ACESSÓRIOS</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="scrollToElement('#contato');">
+                                <div class="header-box">CONTATO</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+    	<br>
+    	<br>
+    	<!--sessao carousel-->
+    	<section class="carousel-slide" id="carousel">
+	    		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				  <!-- Indicators -->
+				  <ol class="carousel-indicators">
+				    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				    <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+				    <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+				    <li data-target="#myCarousel" data-slide-to="3" class="active"></li>
+				    <li data-target="#myCarousel" data-slide-to="4" class="active"></li>
+				    <li data-target="#myCarousel" data-slide-to="5" class="active"></li>
+				  </ol>
 
-    	$(document).ready(function(){
-    		$("#botaoenviar").click(function(){
-    			var $btn = $(this).button('loading')
-    			retorno = validar();
-                if (retorno==true){
-                	enviado.style.display = 'block';           
-                    setTimeout(function(){
-                       	$btn.button('reset');
-                    }, 3000);
-                }
-                else{
-                	$btn.button('reset'); /*desativa o efeito do botao enviar*/
-                }
-            });
-		    function validar() {
-				var nome = formcontato.nome.value;
-				var email = formcontato.email.value;
-				var mensagem = formcontato.mensagem.value;
-				var flag = 0;
+				  <!-- Wrapper for slides -->
+				  <div class="carousel-inner">
+				    <div class="item active">
+				      <img src="img/gibson_logo_branco.png" alt="logo gibson">
+				    </div>
+				    <div class="item">
+				      <img src="img/fender_logo_branco.png" alt="Fender">
+				    </div>
+				    <div class="item">
+				      <img src="img/ibanez_logo_branco.png" alt="Ibanez">
+				    </div>
+				    <div class="item">
+				      <img src="img/tama_logo_branco.png" alt="Tama">
+				    </div>
+				    <div class="item">
+				      <img src="img/tagima_logo_branco.png" alt="Tagima">
+				    </div>
+				    <div class="item">
+				      <img src="img/pearl_logo_branco.png" alt="Pearl">
+				    </div>
+				  </div>
 
-				if (nome == "") {
-					alert('Preencha o campo com seu nome');
-					formcontato.nome.focus();
-					flag = 1;
-				}
-				if (email == "") {
-					alert('Preencha o campo com seu email');
-					formcontato.email.focus();
-					flag = 1;
-				}
-				if (mensagem == "") {
-					alert('Preencha o campo uma mensagem');
-					formcontato.mensagem.focus();
-					flag = 1;
-				}
-				if(flag == 1)
-					return false;
-				else
-					return true;
-			}
-			$("#botaolimparform").click(
-                function(){
-                    $("#nome").val("");
-                    $("#email").val("");
-                    $("#mensagem").val("");
-                }
-            );
-	    });
-    	var scrollToElement = function(el){
-		    $('body').animate({ 
-		        scrollTop: $(el).offset().top - 50 }, 'slow');
-		}
+				  <!-- Left and right controls -->
+				  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left"></span>
+				    <span class="sr-only">Anterior</span>
+				  </a>
+				  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right"></span>
+				    <span class="sr-only">Próximo</span>
+				  </a>
+				</div>
+		</section>
+    	<!--sessao instrumentos cordas-->
+        <section class="cordas" id="cordas">
+            <div class="container" id="cordas">
+            	<hr class="title-row-before">
+                <div class="title"><h2>Instrumentos de Cordas</h2>
+                <div>
+                    <p>Nossos instrumentos de corda são selecionados para agradar a todos os tipos de músicos, desde iniciantes a profissionais! São vários tipos de instrumentos de corda: violão, guitarra, contrabaixo, ukulele e cavaco(o popular cavaquinho). Dispomos de uma grande diversidade de marcas, modelos e materiais. Os melhores intrumentos de corda com os melhores preços você só encontra aqui! Escolha abaixo o tipo de instrumento que você busca.</p>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product">
+                            <img src="img/violao.png" alt="foto violao" class="img-200">
+                            <div class="caption">
+                                <h3>Violão</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product">
+                            <img src="img/guitarra.png" alt="foto guitarra" class="img-200">
+                            <div class="caption">
+                                <h3>Guitarra</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product">
+                            <img src="img/contrabaixo.png" alt="foto contrabaixo" class="img-200">
+                            <div class="caption">
+                                <h3>Contrabaixo</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product">
+                            <img src="img/ukelele.png" alt="foto ukelele" class="img-200">
+                            <div class="caption">
+                                <h3>Ukelele</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/cavaco.png" alt="foto cavaco" class="img-200">
+                            <div class="caption">
+                                <h3>Cavaco</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--sessao instrumentos percussao-->
+        <section class="percussao" id="percussao">
+            <div class="container">
+            	<hr class="title-row-before">
+                <div class="title"><h2>Instrumentos de Percussão</h2>
+                <div>
+                    <p>Nossos instrumentos de percussão são selecionados para agradar a todos os tipos de músicos, desde iniciantes a profissionais! São vários tipos de instrumentos de percussão: bateria acústica, cajon, pandeiro, bateria eletrônica e reco reco. Dispomos de uma grande diversidade de marcas, modelos e materiais. Os melhores intrumentos de percussão com os melhores preços você só encontra aqui! Escolha abaixo o tipo de instrumento que você busca.</p>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/bateria_acustica.png" alt="foto bateria acústica" class="img-200">
+                            <div class="caption">
+                                <h3>Bateria Acústica</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/cajon.png" alt="foto cajon" class="img-200">
+                            <div class="caption">
+                                <h3>Cajon</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/pandeiro.png" alt="foto pandeiro" class="img-200">
+                            <div class="caption">
+                                <h3>Pandeiro</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/bateria_eletronica.png" alt="foto bateria eletrônica" class="img-200">
+                            <div class="caption">
+                                <h3>Bateria Eletrônica</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/reco_reco.png" alt="foto reco reco" class="img-200">
+                            <div class="caption">
+                                <h3>Reco Reco</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--sessao instrumentos teclas-->
+        <section class="teclas" id="teclas">
+            <div class="container">
+            	<hr class="title-row-before">
+                <div class="title"><h2>Instrumentos de Teclas</h2>
+                <div>
+                    <p>Nossos instrumentos de teclas são selecionados para agradar a todos os tipos de músicos, desde iniciantes a profissionais! São vários tipos de instrumentos de teclas: teclados, piano digital, acordeon, controlador e sintetizador. Dispomos de uma grande diversidade de marcas, modelos e materiais. Os melhores intrumentos de teclas com os melhores preços você só encontra aqui! Escolha abaixo o tipo de instrumento que você busca.</p>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/teclado.png" alt="foto teclado" class="img-200">
+                            <div class="caption">
+                                <h3>Teclado</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/piano_digital.png" alt="foto piano digital" class="img-200">
+                            <div class="caption">
+                                <h3>Piano Digital</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/acordeon.png" alt="foto acordeon" class="img-200">
+                            <div class="caption">
+                                <h3>Acordeon</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/controlador.png" alt="foto controlador" class="img-200">
+                            <div class="caption">
+                                <h3>Controlador</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/sintetizador.png" alt="foto sintetizador" class="img-200">
+                            <div class="caption">
+                                <h3>Sintetizador</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--sessao instrumentos sopro-->
+        <section class="sopro" id="sopro">
+            <div class="container">
+            	<hr class="title-row-before">
+                <div class="title"><h2>Instrumentos de Sopro</h2>
+                <div>
+                    <p>Nossos instrumentos de sopro são selecionados para agradar a todos os tipos de músicos, desde iniciantes a profissionais! São vários tipos de instrumentos de sopro: flauta, trompete, clarinete, saxofone e escaleta. Dispomos de uma grande diversidade de marcas, modelos e materiais. Os melhores intrumentos de sopro com os melhores preços você só encontra aqui! Escolha abaixo o tipo de instrumento que você busca.</p>
+                </div>
+                <div class="row">
+                	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/flauta.png" alt="foto flauta" class="img-200">
+                            <div class="caption">
+                                <h3>Flauta</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/trompete.png" alt="foto trompete" class="img-200">
+                            <div class="caption">
+                                <h3>Trompete</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/clarinete.png" alt="foto clarinete" class="img-200">
+                            <div class="caption">
+                                <h3>Clarinete</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/saxofone.png" alt="foto saxofone" class="img-200">
+                            <div class="caption">
+                                <h3>Saxofone</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/escaleta.png" alt="foto escaleta" class="img-200">
+                            <div class="caption">
+                                <h3>Escaleta</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--sessao acessorios-->
+        <section class="acessorios" id="acessorios">
+            <div class="container">
+            	<hr class="title-row-before">
+                <div class="title"><h2>Acessórios</h2>
+                <div>
+                    <p>Ter acessórios de alta qualidade faz muita diferença, sendo para melhorar a sua experiência com o seu instrumento, auxiliar nos estudos, guardar o instrumento da forma correta ou realizar eventuais reparos. Aqui você encontra itens como bag, suporte, cabo, correia, palheta, afinador, capotraste e corda. Os melhores acessórios com os melhores preços você só encontra aqui! Escolha abaixo o tipo de acessório que você busca.</p>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/bag.png" alt="foto bag" class="img-200">
+                            <div class="caption">
+                                <h3>Bag</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/suporte.png" alt="foto suporte" class="img-200">
+                            <div class="caption">
+                                <h3>Suporte</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/cabo.png" alt="foto cabo" class="img-200">
+                            <div class="caption">
+                                <h3>Cabo</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/correia.png" alt="foto correia" class="img-200">
+                            <div class="caption">
+                                <h3>Correia</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/palheta.png" alt="foto palheta" class="img-200">
+                            <div class="caption">
+                                <h3>Palheta</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/afinador.png" alt="foto afinador" class="img-200">
+                            <div class="caption">
+                                <h3>Afinador</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/capotraste.png" alt="foto capotraste" class="img-200">
+                            <div class="caption">
+                                <h3>Capotraste</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
+                        <div class="thumbnail product img-rounded">
+                            <img src="img/cordas.png" alt="foto cordas" class="img-200">
+                            <div class="caption">
+                                <h3>Corda</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--sessao contato-->
+        <section class="contato" id="contato">
+            <div class="container" id="contato">
+            	<hr class="title-row-before">
+                <div class="title"><h2>Contato</h2>
+                <div class="hidden-print">   <!-- ocultando na impressao -->
+                    <p>Entre em contato conosco preenchendo o formulário abaixo. Deixe sua dúvida ou um comentário sobre a nossa página e/ou nossos serviços no campo abaixo. Ficaremos felizes que entre em contato conosco. Participe e contribua!</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                    <form class="form-group hidden-print" id="formcontato">   <!-- ocultando na impressao -->
+                        <fieldset>
+                            <legend>Preencha os campos abaixo para entrar em contato conosco:</legend>
+                            <label for="nome" class="hidden">Nome:</label>
+                            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"/>
+                            <br/>
+                            <label for="email" class="hidden">Email:</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="E-mail"/>
+                            <br/>
+                            <label for="mensagem" class="hidden">Mensagem:</label>
+                            <textarea rows="4" class="form-control" id="mensagem" placeholder="Insira aqui seu texto"></textarea>
+                            <br/>
+                            <button id="botaoenviar" type="button" data-loading-text="Enviando" class="btn btn-primary" autocomplete="off">Enviar</button>
+                            <button id="botaolimparform" type="button" class="btn btn-danger">Limpar</button>
+                        </fieldset>
+                    </form>
+                    <div class="alert alert-success hidden-print" role="alert" id="enviado" style="display:none;">
+  						<strong>Obrigado!</strong> Sua mensagem foi enviada com sucesso.
+					</div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 contato-empresa">
+                    <h3>Ou também através de nossos meios de comunicação com o cliente:</h3>
+                    <ul class="contato-empresa">
+		                <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>E-mail: contatointrumentosmusicais@hotmail.com</li>
+		                <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Telefone: (+55) 99999-9999</li>
+		                <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Endereço: Rua ficticia, nº 01, Bairro Sem Nome</li>
+		            </ul>
+		         </div>
+            </div>
+        </section>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Confirmação de envio</h4>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal" id="botaocancelarmodal">Cancelar</button>
+		        <button type="button" class="btn btn-primary" id="botaoenviarmodal">Enviar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+    </main>
+	<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <p class="copyright text-muted meddium footer">Copyright &copy; Sem Registro - 2017</p>
+                    <p class="copyright text-muted meddium footer">Desenvolvido por Leonardo Belinski</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
