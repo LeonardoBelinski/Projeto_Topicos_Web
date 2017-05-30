@@ -10,10 +10,10 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
-    
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<header>
+	<!--navbar menu topo da página-->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header" id="navheader">
@@ -61,6 +61,16 @@
                                 <div class="header-box">CONTATO</div>
                             </a>
                         </li>
+                        <li>
+                            <a onclick="login()">
+                            	<div class="header-box botaologin">LOGIN</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="cadastrar()">
+                            	<div class="header-box botaocadastrar">CADASTRAR-SE</div>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -69,51 +79,131 @@
     <main>
     	<br>
     	<br>
-    	<!--sessao carousel-->
+    	<!--Modal Login Usuário-->
+    	<div class="modal fade" id="modallogin" tabindex="-1" role="dialog" aria-labelledby="modalloginlabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" id="fecharmodallogin" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         <h2 class="modal-title" id="modalloginlabel">Login</h2>
+                    </div>
+                	<div class="modal-body">
+                    	<form id="formlogin">
+                        	<div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <label class="sr-only" for="login">Email</label>
+                                    <input type="text" class="form-control" id="login" name="login" placeholder="Email">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <label class="sr-only" for="senha">Senha</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button id="botaologin" type="button" data-loading-text="Entrando" class="btn btn-primary" autocomplete="off">Entrar</button>
+                        </div>
+         	        </div>
+                </div>
+            </div>  
+        </div>
+        <!-- Modal Cadastro Usuário-->
+        <div class="modal fade" id="modalcadastrar" tabindex="-1" role="dialog" aria-labelledby="modalcadastrarlabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" id="fecharmodalcadastrar" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         <h2 class="modal-title" id="modalcadastrarlabel">Cadastrar-se</h2>
+                    </div>
+                	<div class="modal-body">
+                    	<form id="formcadastrar">
+                    		<div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <label class="sr-only" for="login">Nome</label>
+                                    <input type="text" class="form-control" id="nomecadastrar" name="nomecadastrar" placeholder="Nome">
+                                </div>
+                            </div>
+                            <br>
+                        	<div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <label class="sr-only" for="login">Email</label>
+                                    <input type="email" class="form-control" id="logincadastrar" name="logincadastrar" placeholder="Email">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <label class="sr-only" for="senha">Senha</label>
+                                    <input type="password" class="form-control" id="senhacadastrar" name="senhacadastrar" placeholder="Senha">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="alert alert-success hidden-print" role="alert" id="cadastroconcluido" style="display:none;">
+  								<strong>Obrigado!</strong>Seu cadastro foi efetuado com sucesso.
+							</div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button id="botaocadastrar" type="button" class="btn btn-primary"  data-loading-text="Verificando" autocomplete="off">Cadastrar</button>
+                        </div>
+         	        </div>
+                </div>
+            </div>  
+        </div>
+    	<!--sessão carousel-->
     	<section class="carousel-slide" id="carousel">
-	    		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				  <!-- Indicators -->
-				  <ol class="carousel-indicators">
-				    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	    	<div id="myCarousel" class="carousel slide hidden-print" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				    <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
 				    <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
 				    <li data-target="#myCarousel" data-slide-to="3" class="active"></li>
 				    <li data-target="#myCarousel" data-slide-to="4" class="active"></li>
 				    <li data-target="#myCarousel" data-slide-to="5" class="active"></li>
-				  </ol>
-
-				  <!-- Wrapper for slides -->
-				  <div class="carousel-inner">
+				    <li data-target="#myCarousel" data-slide-to="6" class="active"></li>
+				</ol>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
 				    <div class="item active">
-				      <img src="img/gibson_logo_branco.png" alt="logo gibson">
+				      <i data-toggle="tooltip" data-placement="bottom" title="Gibson"><img src="img/gibson_img.png" class="imgcarousel" alt="logo gibson" ></i>
 				    </div>
 				    <div class="item">
-				      <img src="img/fender_logo_branco.png" alt="Fender">
+				      <i data-toggle="tooltip" data-placement="bottom" title="Fender"><img src="img/fender_img.png" class="imgcarousel" alt="Fender"></i>
 				    </div>
 				    <div class="item">
-				      <img src="img/ibanez_logo_branco.png" alt="Ibanez">
+				      <i data-toggle="tooltip" data-placement="bottom" title="Ibanez"><img src="img/ibanez_img.png" class="imgcarousel" alt="Ibanez"></i>
 				    </div>
 				    <div class="item">
-				      <img src="img/tama_logo_branco.png" alt="Tama">
+				      <i data-toggle="tooltip" data-placement="bottom" title="Tama"><img src="img/tama_img.png" class="imgcarousel" alt="Tama"></i>
 				    </div>
 				    <div class="item">
-				      <img src="img/tagima_logo_branco.png" alt="Tagima">
+				      <i data-toggle="tooltip" data-placement="bottom" title="Tagima"><img src="img/tagima_img.png" class="imgcarousel" alt="Tagima"></i>
 				    </div>
 				    <div class="item">
-				      <img src="img/pearl_logo_branco.png" alt="Pearl">
+				      <i data-toggle="tooltip" data-placement="bottom" title="Pearl"><img src="img/pearl_img.png" class="imgcarousel" alt="Pearl"></i>
 				    </div>
-				  </div>
+				    <div class="item">
+				      <i data-toggle="tooltip" data-placement="bottom" title="Jackson"><img src="img/jackson_img.png" class="imgcarousel" alt="Jackson"></i>
+				    </div>
+				</div>
 
-				  <!-- Left and right controls -->
-				  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				    <span class="glyphicon glyphicon-chevron-left"></span>
+				<!-- controles para avançar ou retroceder-->
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
 				    <span class="sr-only">Anterior</span>
-				  </a>
-				  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+				</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">
 				    <span class="glyphicon glyphicon-chevron-right"></span>
 				    <span class="sr-only">Próximo</span>
 				  </a>
-				</div>
+			</div>
 		</section>
     	<!--sessao instrumentos cordas-->
         <section class="cordas" id="cordas">
@@ -125,7 +215,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product">
+                        <div class="thumbnail produto">
                             <img src="img/violao.png" alt="foto violao" class="img-200">
                             <div class="caption">
                                 <h3>Violão</h3>
@@ -133,7 +223,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product">
+                        <div class="thumbnail produto">
                             <img src="img/guitarra.png" alt="foto guitarra" class="img-200">
                             <div class="caption">
                                 <h3>Guitarra</h3>
@@ -141,7 +231,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product">
+                        <div class="thumbnail produto">
                             <img src="img/contrabaixo.png" alt="foto contrabaixo" class="img-200">
                             <div class="caption">
                                 <h3>Contrabaixo</h3>
@@ -149,7 +239,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product">
+                        <div class="thumbnail produto">
                             <img src="img/ukelele.png" alt="foto ukelele" class="img-200">
                             <div class="caption">
                                 <h3>Ukelele</h3>
@@ -157,7 +247,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/cavaco.png" alt="foto cavaco" class="img-200">
                             <div class="caption">
                                 <h3>Cavaco</h3>
@@ -177,7 +267,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/bateria_acustica.png" alt="foto bateria acústica" class="img-200">
                             <div class="caption">
                                 <h3>Bateria Acústica</h3>
@@ -185,7 +275,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/cajon.png" alt="foto cajon" class="img-200">
                             <div class="caption">
                                 <h3>Cajon</h3>
@@ -193,7 +283,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/pandeiro.png" alt="foto pandeiro" class="img-200">
                             <div class="caption">
                                 <h3>Pandeiro</h3>
@@ -201,7 +291,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/bateria_eletronica.png" alt="foto bateria eletrônica" class="img-200">
                             <div class="caption">
                                 <h3>Bateria Eletrônica</h3>
@@ -209,7 +299,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/reco_reco.png" alt="foto reco reco" class="img-200">
                             <div class="caption">
                                 <h3>Reco Reco</h3>
@@ -229,7 +319,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/teclado.png" alt="foto teclado" class="img-200">
                             <div class="caption">
                                 <h3>Teclado</h3>
@@ -237,7 +327,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/piano_digital.png" alt="foto piano digital" class="img-200">
                             <div class="caption">
                                 <h3>Piano Digital</h3>
@@ -245,7 +335,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/acordeon.png" alt="foto acordeon" class="img-200">
                             <div class="caption">
                                 <h3>Acordeon</h3>
@@ -253,7 +343,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/controlador.png" alt="foto controlador" class="img-200">
                             <div class="caption">
                                 <h3>Controlador</h3>
@@ -261,7 +351,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/sintetizador.png" alt="foto sintetizador" class="img-200">
                             <div class="caption">
                                 <h3>Sintetizador</h3>
@@ -281,7 +371,7 @@
                 </div>
                 <div class="row">
                 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/flauta.png" alt="foto flauta" class="img-200">
                             <div class="caption">
                                 <h3>Flauta</h3>
@@ -289,7 +379,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/trompete.png" alt="foto trompete" class="img-200">
                             <div class="caption">
                                 <h3>Trompete</h3>
@@ -297,7 +387,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/clarinete.png" alt="foto clarinete" class="img-200">
                             <div class="caption">
                                 <h3>Clarinete</h3>
@@ -305,7 +395,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/saxofone.png" alt="foto saxofone" class="img-200">
                             <div class="caption">
                                 <h3>Saxofone</h3>
@@ -313,7 +403,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/escaleta.png" alt="foto escaleta" class="img-200">
                             <div class="caption">
                                 <h3>Escaleta</h3>
@@ -333,7 +423,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/bag.png" alt="foto bag" class="img-200">
                             <div class="caption">
                                 <h3>Bag</h3>
@@ -341,7 +431,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/suporte.png" alt="foto suporte" class="img-200">
                             <div class="caption">
                                 <h3>Suporte</h3>
@@ -349,7 +439,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/cabo.png" alt="foto cabo" class="img-200">
                             <div class="caption">
                                 <h3>Cabo</h3>
@@ -357,7 +447,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/correia.png" alt="foto correia" class="img-200">
                             <div class="caption">
                                 <h3>Correia</h3>
@@ -365,7 +455,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/palheta.png" alt="foto palheta" class="img-200">
                             <div class="caption">
                                 <h3>Palheta</h3>
@@ -373,7 +463,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/afinador.png" alt="foto afinador" class="img-200">
                             <div class="caption">
                                 <h3>Afinador</h3>
@@ -381,7 +471,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/capotraste.png" alt="foto capotraste" class="img-200">
                             <div class="caption">
                                 <h3>Capotraste</h3>
@@ -389,7 +479,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 hidden-print">   <!-- ocultando na impressao -->
-                        <div class="thumbnail product img-rounded">
+                        <div class="thumbnail produto img-rounded">
                             <img src="img/cordas.png" alt="foto cordas" class="img-200">
                             <div class="caption">
                                 <h3>Corda</h3>
@@ -413,21 +503,27 @@
                             <legend>Preencha os campos abaixo para entrar em contato conosco:</legend>
                             <label for="nome" class="hidden">Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"/>
-                            <br/>
+                            <br>
                             <label for="email" class="hidden">Email:</label>
                             <input type="email" class="form-control" name="email" id="email" placeholder="E-mail"/>
-                            <br/>
+                            <br>
                             <label for="mensagem" class="hidden">Mensagem:</label>
                             <textarea rows="4" class="form-control" id="mensagem" placeholder="Insira aqui seu texto"></textarea>
-                            <br/>
-                            <button id="botaoenviar" type="button" data-loading-text="Enviando" class="btn btn-primary" autocomplete="off">Enviar</button>
-                            <button id="botaolimparform" type="button" class="btn btn-danger">Limpar</button>
+                            <br>
+                            <!--Button groups-->
+                            <div class="btn-group" role="group" aria-label="...">
+								<button id="botaoenviar" type="button" data-loading-text="Enviando" class="btn btn-primary" autocomplete="off">Enviar</button>
+							  	<button id="botaolimparform" type="button" class="btn btn-danger">Limpar</button>
+							</div>
                         </fieldset>
                     </form>
+                    <!-- alert mensagem sucesso envio -->
                     <div class="alert alert-success hidden-print" role="alert" id="enviado" style="display:none;">
+                    	<a href="#" class="close" data-dismiss="alert">&times;</a>
   						<strong>Obrigado!</strong> Sua mensagem foi enviada com sucesso.
 					</div>
                 </div>
+                <!-- informações contato da empresa -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 contato-empresa">
                     <h3>Ou também através de nossos meios de comunicação com o cliente:</h3>
                     <ul class="contato-empresa">
@@ -443,7 +539,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <p class="copyright text-muted meddium footer">Copyright &copy; Sem Registro - 2017</p>
+                    <p class="copyright text-muted meddium footer">Copyright &copy; 2017</p>
                     <p class="copyright text-muted meddium footer">Desenvolvido por Leonardo Belinski</a></p>
                 </div>
             </div>
